@@ -1,0 +1,22 @@
+RewriteEngine On
+
+# HTTPS ve www yönlendirmesi
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.canakkalepsikoterapi.com%{REQUEST_URI} [R=301,L]
+
+# Diğer yönlendirmeler
+RewriteRule ^blog-icerik/([0-9a-zA-Z-_]+)-([0-9]+)  blog-icerik.php?sef=$1&id=$2 [L,QSA]
+RewriteRule ^hizmet-icerik/([0-9a-zA-Z-_]+)-([0-9]+)  hizmet-icerik.php?sef=$1&id=$2 [L,QSA]
+RewriteRule ^([a-z0-9_\-]+)(\.html) $1.php [L,NC]
+RewriteRule ^hakkimizda hakkimizda.php [L,NC]
+RewriteRule ^degisim degisim.php [L,NC]
+RewriteRule ^ekibimiz ekibimiz.php [L,NC]
+RewriteRule ^sikca-sorulanlar sikca-sorulanlar.php [L,NC]
+RewriteRule ^index index.php [L,NC]
+RewriteRule ^blog blog.php [L,NC]
+RewriteRule ^randevu-al randevu-al.php [L,NC]
+RewriteRule ^iletisim iletisim.php [L,NC]
+RewriteRule ^hizmetlerimiz hizmetlerimiz.php [L,NC]
+RewriteRule ^foto-galeri foto-galeri.php [L,NC]
+RewriteRule ^video-galeri video-galeri.php [L,NC]
